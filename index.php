@@ -49,6 +49,69 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
             </tr>
             <?php } ?>
         </table>
+
+        <?php
+        // Check if user clicked portfolio
+        if (isset($_GET['userId'])) {
+            $userId = $_GET['userId'];
+
+            // Get user details
+
+            $sql = "SELECT * FROM users WHERE id = $userId";
+            $result = $db->query($sql);
+            $user = $result->fetch(PDO::FETCH_ASSOC);
+
+            echo "<h2>" . $user['firstname'] . " " . $user['lastname'] . "</h2>";
+
+            // Get user portfolio with company names
+            $sql = "SELECT portfolio.symbol, portfolio.amount, companies.name
+                    FROM portfolio
+                    INNER JOIN companies ON portfolio.symbol = companies.symbol
+                    WHERE portfolio.userId = $userId";
+            $result = $db->query($sql);
+            $stocks = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            //Calculate total
+            $totalShares = 0;
+            $numCompanies = count($stocks);
+
+            foreach ($stocks as $stock) {
+                $totalShares = $totalShares + $stock['amount'];
+            }
+
+            // Display portfolio table
+
+            echo "<table border='1'>";
+            echo "<tr><th>Symbol</th><th>Name</th><th>Share Amounth</th></tr>";
+                
+
+
+        
+
+
+        }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </main>
 </body>
 </html>
