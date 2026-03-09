@@ -10,7 +10,7 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
-// set page title, create headers and link to css
+<!-- // set page title, create headers and link to css -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,7 +32,7 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
         <h2>Customers</h2>
         <p>Select a customer to view portfolio</p>
 
-        // Display customers in a table
+        <!--// Display customers in a table -->
         <table border="1">
             <tr>
                 <th>Name</th>
@@ -40,7 +40,7 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
             </tr>
             <?php foreach ($customers as $customer) { ?>
             <tr>
-                //assign customer to row with name and portfolio link
+                <!-- //assign customer to row with name and portfolio link -->
                 <td><?php echo $customer['lastname'] . ", " . $customer['firstname']; ?></td>
                 <td>
                     <a href="index.php?userId=<?php echo $customer['id']; ?>">portfolio</a>
