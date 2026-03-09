@@ -74,13 +74,34 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
             //Calculate total
             $totalShares = 0;
             $numCompanies = count($stocks);
+            $totalValue = 0;
 
-            foreach ($stocks as $stock) {
+            // Read closing price for each stock and calculate the value
+            
+        foreach ($stocks as $stock) {
                 $totalShares = $totalShares + $stock['amount'];
-            }
+
+            $symbol = $stock['symbol'];
+            $sql = "SELECT close FROM history
+                    WHERE symbol = '$symbol'
+                    ORDER BY DATE DESC
+                    LIMIT 1";
+            $result = $db->query($sql);
+            $priceRow = $result->fetch(PDO::FETCH_ASSOC);
+            $closePrice = $priceRow['close'];
+
+            // Calculate stock value
+            $stockValue = $stock['amount'] * $closePrice;
+            $totalValue = $totalValue + $stockValue;
+
+            // Store the value to display in the table
+            $stocks[$index]['value'] = $stockValue;
+   
+        }
 
             echo "<p><strong># Shares:</strong> " . $totalShares . "</p>";
             echo "<p><strong># Companies:</strong> " . $numCompanies . "</p>";
+            echo "<p><strong># Total Value:</strong> " . number_format($totalValue, 2) . "</p>";
 
             // Display portfolio table
 
@@ -93,6 +114,7 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
                 echo "<td>" . $stock['symbol'] . "</td>";
                 echo "<td>" . $stock['name'] . "</td>";
                 echo "<td>" . $stock['amount'] . "</td>";
+                echo "<td>" . number_format($stock['value'], 2) . "</td>";
                 echo "</tr>";
             }
 
