@@ -79,38 +79,28 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
                 $totalShares = $totalShares + $stock['amount'];
             }
 
+            echo "<p><strong># Shares:</strong> " . $totalShares . "</p>";
+            echo "<p><strong># Companies:</strong> " . $numCompanies . "</p>";
+
             // Display portfolio table
 
             echo "<table border='1'>";
             echo "<tr><th>Symbol</th><th>Name</th><th>Share Amounth</th></tr>";
-                
 
+            //Display each stock in a table
+            foreach ($stocks as $stock) {
+                echo "<tr>";
+                echo "<td>" . $stock['symbol'] . "</td>";
+                echo "<td>" . $stock['name'] . "</td>";
+                echo "<td>" . $stock['amount'] . "</td>";
+                echo "</tr>";
+            }
 
-        
-
-
+            echo "</table>";
+            
         }
+        ?>
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </main>
 </body>
