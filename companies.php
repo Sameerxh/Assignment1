@@ -100,7 +100,7 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
             // Get history info for the table
             $sql = "SELECT * FROM history WHERE symbol = '$symbol' ORDER BY date ASC";
             $result = $db->query($sql);
-            $company = $result->fetchAll(PDO::FETCH_ASSOC);
+            $history = $result->fetchAll(PDO::FETCH_ASSOC);
 
             // Display history table
             echo "<h3>History (3 Months)</h3>";
