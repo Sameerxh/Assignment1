@@ -119,8 +119,7 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
             }
 
             echo "</table>"; 
-
-        }
+         }
         ?>
     </main>
 </body>
