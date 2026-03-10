@@ -123,9 +123,8 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
             }
 
             echo "</table>"; 
-         } else {
-            echo "<p>Click a company to see details</p>";
-         }
+         } 
+        
 
         ?>
     </main>
