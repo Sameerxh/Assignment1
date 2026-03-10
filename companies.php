@@ -52,7 +52,7 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
 
             //Get this company's info
             $sql = "SELECT * FROM companies WHERE symbol = '$symbol'";
-            $result = $db->query(sql);
+            $result = $db->query($sql);
             $company = $result->fetch(PDO::FETCH_ASSOC);
 
             //Display company details
@@ -74,19 +74,19 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
             $sql = "SELECT MIN(low) as lowHistory FROM history WHERE symbol = '$symbol'";
             $result = $db->query($sql);
             $row = $result->fetch(PDO::FETCH_ASSOC);
-            $highHistory = $row['lowHistory'];
+            $lowHistory = $row['lowHistory'];
 
             //Get total volume
             $sql = "SELECT SUM(volume) as totalVolume FROM history WHERE symbol = '$symbol'";
             $result = $db->query($sql);
             $row = $result->fetch(PDO::FETCH_ASSOC);
-            $highHistory = $row['totalVolume'];
+            $totalVolume = $row['totalVolume'];
 
             // Get average volume
             $sql = "SELECT AVG(volume) as avgVolume FROM history WHERE symbol = '$symbol'";
             $result = $db->query($sql);
             $row = $result->fetch(PDO::FETCH_ASSOC);
-            $highHistory = $row['avgVolume'];
+            $avgVolume = $row['avgVolume'];
 
             // Display the statistics 
             echo "<h3>Stock Statistics</h3>";
@@ -99,12 +99,12 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
 
             // Get history info for the table
             $sql = "SELECT * FROM history WHERE symbol = '$symbol' ORDER BY date ASC";
-            $result = $db->query(sql);
+            $result = $db->query($sql);
             $company = $result->fetchAll(PDO::FETCH_ASSOC);
 
             // Display history table
             echo "<h3>History (3 Months)</h3>";
-            echo "<table border='1>";
+            echo "<table border='1'>";
             echo "<tr><th>Date</th><th>Volume</th><th>Open</th><th>Close></th><th>High</th><th>Low</th></tr>";
 
             foreach ($history as $record) {
