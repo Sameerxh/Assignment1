@@ -15,7 +15,7 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
 <html>
     <head>
         <title>Stock Portfolio - Companies</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
 
 <body>
