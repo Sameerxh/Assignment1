@@ -32,7 +32,7 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
         <div class="two-column">
             <div class="left-column">
                 <h2>Companies</h2>
-                 <p>Select a company to view details</p>
+                 <h6>Select a company to view details</h6>
 
                 <ul>
                      <?php foreach ($companies as $company) { ?>
