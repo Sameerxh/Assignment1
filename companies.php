@@ -105,7 +105,7 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
             // Display history table
             echo "<h3>History (3 Months)</h3>";
             echo "<table border='1'>";
-            echo "<tr><th>Date</th><th>Volume</th><th>Open</th><th>Close></th><th>High</th><th>Low</th></tr>";
+            echo "<tr><th>Date</th><th>Volume</th><th>Open</th><th>Close</th><th>High</th><th>Low</th></tr>";
 
             foreach ($history as $record) {
                 echo "<tr>";
