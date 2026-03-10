@@ -6,7 +6,7 @@ $db ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // Get customers
 $sql = "SELECT * FROM companies";
 $result = $db ->query($sql);
-$customers = $result->fetchAll(PDO::FETCH_ASSOC);
+$companies = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -120,7 +120,7 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
 
             echo "</table>"; 
          }
-         
+
         ?>
     </main>
 </body>
