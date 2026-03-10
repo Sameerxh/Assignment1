@@ -43,7 +43,7 @@ $customers = $result->fetchAll(PDO::FETCH_ASSOC);
                 <!-- //assign customer to row with name and portfolio link -->
                 <td><?php echo $customer['lastname'] . ", " . $customer['firstname']; ?></td>
                 <td>
-                    <a href="index.php?userId=<?php echo $customer['id']; ?>">portfolio</a>
+                    <a href="index.php?userId=<?php echo $customer['id']; ?>">Portfolio</a>
                 </td>
             
             </tr>
