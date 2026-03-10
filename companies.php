@@ -92,8 +92,8 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
             echo "<h3>Stock Statistics</h3>";
             echo "<p><strong>High History:</strong> $" . number_format($highHistory, 2) . "</p>";
             echo "<p><strong>Low History:</strong> $" . number_format($lowHistory, 2) . "</p>";
-            echo "<p><strong>Total Volume:</strong> $" . number_format($totalVolume) . "</p>";
-            echo "<p><strong>Average Volume:</strong> $" . number_format($avgVolume, 2) . "</p>";
+            echo "<p><strong>Total Volume:</strong> " . number_format($totalVolume) . "</p>";
+            echo "<p><strong>Average Volume:</strong> " . number_format($avgVolume, 2) . "</p>";
         
 
 
