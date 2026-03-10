@@ -78,3 +78,20 @@ a {
     color: #259fc0;
 
 }
+
+/* Two column company design */
+.two-column {
+    display: flex;
+    gap: 20px;
+}
+
+.left-column {
+    width: 250px;
+    flex-shrink: 0;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.right-column {
+    flex-grow: 1;
+}

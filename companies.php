@@ -29,23 +29,27 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
     </header>
 
     <main>
-        <h2>Companies</h2>
-        <p>Select a company to view details</p>
+        <div class="two-column">
+            <div class="left-column">
+                <h2>Companies</h2>
+                 <p>Select a company to view details</p>
 
-        <ul>
-            <?php foreach ($companies as $company) { ?>
+                <ul>
+                     <?php foreach ($companies as $company) { ?>
 
-            <li>
-                <a href="companies.php?symbol=<?php echo $company['symbol']; ?>">
-                    <?php echo $company['name']; ?>
-                </a>
-            </li>
+                    <li>
+                        <a href="companies.php?symbol=<?php echo $company['symbol']; ?>">
+                            <?php echo $company['name']; ?>
+                         </a>
+                     </li>
 
 
-          <?php } ?>
-        </ul>
+                    <?php } ?>
+                 </ul>
+        </div>
 
-        <?php
+        <div class="right-column">
+         <?php
         // Check if user clicked company
         if (isset($_GET['symbol'])) {
             $symbol = $_GET['symbol'];
@@ -119,6 +123,8 @@ $companies = $result->fetchAll(PDO::FETCH_ASSOC);
             }
 
             echo "</table>"; 
+         } else {
+            echo "<p>Click a company to see details</p>";
          }
 
         ?>
